@@ -24,6 +24,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { MatDividerModule } from '@angular/material/divider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { LoginComponent } from './login/login.component';
     MatSelectModule,
     MatRadioModule,
     MatCardModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
     ReactiveFormsModule
   ],
   providers: [],

@@ -2,3 +2,14 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.m-auto{
+    margin: auto;
+}
+.flex{
+    display: flex;
+}
+  
+.justify-content-between{
+    justify-content: space-between;
+}
