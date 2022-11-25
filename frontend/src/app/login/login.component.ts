@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.isLoading = true;
     setTimeout(() => {
-      this.router.navigate(['/'])
+      this.router.navigate(['table'])
     }, 2000);
   }
 

@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { MatTableComponent } from './mat-table/mat-table.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -25,7 +25,10 @@ import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MatDividerModule } from '@angular/material/divider';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
+import { ImageSliderModule } from './imageSlider/imageSlider.module'
 
 @NgModule({
   declarations: [
@@ -34,8 +37,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
     MatTableComponent,
     RegFormComponent,
     LoginComponent,
+    FooterComponent,
+    HomeComponent,
   ],
   imports: [
+    ImageSliderModule,
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,
@@ -56,7 +62,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
     MatCardModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
