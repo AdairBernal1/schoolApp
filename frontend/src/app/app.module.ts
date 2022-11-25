@@ -23,13 +23,17 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { ImageSliderModule } from './imageSlider/imageSlider.module'
-
+import { ImageSliderModule } from './imageSlider/imageSlider.module';
+import { SignupComponent } from './auth/signup/signup.component';
+import { AuthModule } from './auth/auth.module';
+import { AuthComponent } from './auth/auth.component';
+import { SignupModule } from './auth/signup/signup.module';
+import { LoginModule } from './auth/login/login.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +43,8 @@ import { ImageSliderModule } from './imageSlider/imageSlider.module'
     LoginComponent,
     FooterComponent,
     HomeComponent,
+    SignupComponent,
+    AuthComponent,
   ],
   imports: [
     ImageSliderModule,
@@ -63,6 +69,9 @@ import { ImageSliderModule } from './imageSlider/imageSlider.module'
     MatDividerModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    AuthModule,
+    SignupModule,
+    LoginModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
