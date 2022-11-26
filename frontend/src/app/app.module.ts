@@ -35,7 +35,9 @@ import { LoginModule } from './auth/login/login.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
-import { AuthModule } from '@auth0/auth0-angular';
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { FormsModule } from '@angular/forms';
+import { AlumnosComponent } from './alumnos/alumnos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,7 @@ import { AuthModule } from '@auth0/auth0-angular';
     HomeComponent,
     RegisterComponent,
     DashboardComponent,
+    AlumnosComponent,
   ],
   imports: [
     ImageSliderModule,
@@ -75,10 +78,8 @@ import { AuthModule } from '@auth0/auth0-angular';
     LoginModule,
     MatGridListModule,
     MatMenuModule,
-    AuthModule.forRoot({
-      domain: 'dev-fhyiwtmosifs7eqw.us.auth0.com',
-      clientId: '3XPBj5S1n9ckPqYsA7aTLoY0Z6CDor2S'
-    })
+    MatCheckboxModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
