@@ -1,0 +1,8 @@
+query MyQuery {
+  users {
+    user_id
+    user_password
+    user_type
+    username
+  }
+}
