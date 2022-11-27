@@ -14,6 +14,7 @@ export type Scalars = {
   Int: number;
   Float: number;
   bigint: any;
+  timestamptz: any;
 };
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
@@ -444,7 +445,7 @@ export type Mutation_RootDelete_UsersArgs = {
 
 /** mutation root */
 export type Mutation_RootDelete_Users_By_PkArgs = {
-  user_id: Scalars['bigint'];
+  user_id: Scalars['String'];
 };
 
 
@@ -570,7 +571,6 @@ export type Mutation_RootUpdate_User_Type_ManyArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_UsersArgs = {
-  _inc?: InputMaybe<Users_Inc_Input>;
   _set?: InputMaybe<Users_Set_Input>;
   where: Users_Bool_Exp;
 };
@@ -578,7 +578,6 @@ export type Mutation_RootUpdate_UsersArgs = {
 
 /** mutation root */
 export type Mutation_RootUpdate_Users_By_PkArgs = {
-  _inc?: InputMaybe<Users_Inc_Input>;
   _set?: InputMaybe<Users_Set_Input>;
   pk_columns: Users_Pk_Columns_Input;
 };
@@ -722,7 +721,7 @@ export type Query_RootUsers_AggregateArgs = {
 
 
 export type Query_RootUsers_By_PkArgs = {
-  user_id: Scalars['bigint'];
+  user_id: Scalars['String'];
 };
 
 /** columns and relationships of "students" */
@@ -738,9 +737,6 @@ export type Students = {
   phone?: Maybe<Scalars['String']>;
   student_id: Scalars['bigint'];
   tuition_type: Scalars['String'];
-  /** An object relationship */
-  user: Users;
-  user_id: Scalars['bigint'];
 };
 
 /** aggregated selection of "students" */
@@ -811,14 +807,12 @@ export type Students_Avg_Fields = {
   __typename?: 'students_avg_fields';
   group?: Maybe<Scalars['Float']>;
   student_id?: Maybe<Scalars['Float']>;
-  user_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "students" */
 export type Students_Avg_Order_By = {
   group?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "students". All fields are combined with a logical 'AND'. */
@@ -835,8 +829,6 @@ export type Students_Bool_Exp = {
   phone?: InputMaybe<String_Comparison_Exp>;
   student_id?: InputMaybe<Bigint_Comparison_Exp>;
   tuition_type?: InputMaybe<String_Comparison_Exp>;
-  user?: InputMaybe<Users_Bool_Exp>;
-  user_id?: InputMaybe<Bigint_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "students" */
@@ -851,7 +843,6 @@ export enum Students_Constraint {
 export type Students_Inc_Input = {
   group?: InputMaybe<Scalars['Int']>;
   student_id?: InputMaybe<Scalars['bigint']>;
-  user_id?: InputMaybe<Scalars['bigint']>;
 };
 
 /** input type for inserting data into table "students" */
@@ -865,8 +856,6 @@ export type Students_Insert_Input = {
   phone?: InputMaybe<Scalars['String']>;
   student_id?: InputMaybe<Scalars['bigint']>;
   tuition_type?: InputMaybe<Scalars['String']>;
-  user?: InputMaybe<Users_Obj_Rel_Insert_Input>;
-  user_id?: InputMaybe<Scalars['bigint']>;
 };
 
 /** aggregate max on columns */
@@ -880,7 +869,6 @@ export type Students_Max_Fields = {
   phone?: Maybe<Scalars['String']>;
   student_id?: Maybe<Scalars['bigint']>;
   tuition_type?: Maybe<Scalars['String']>;
-  user_id?: Maybe<Scalars['bigint']>;
 };
 
 /** order by max() on columns of table "students" */
@@ -893,7 +881,6 @@ export type Students_Max_Order_By = {
   phone?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
   tuition_type?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -907,7 +894,6 @@ export type Students_Min_Fields = {
   phone?: Maybe<Scalars['String']>;
   student_id?: Maybe<Scalars['bigint']>;
   tuition_type?: Maybe<Scalars['String']>;
-  user_id?: Maybe<Scalars['bigint']>;
 };
 
 /** order by min() on columns of table "students" */
@@ -920,7 +906,6 @@ export type Students_Min_Order_By = {
   phone?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
   tuition_type?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** response of any mutation on the table "students" */
@@ -950,8 +935,6 @@ export type Students_Order_By = {
   phone?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
   tuition_type?: InputMaybe<Order_By>;
-  user?: InputMaybe<Users_Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: students */
@@ -976,9 +959,7 @@ export enum Students_Select_Column {
   /** column name */
   StudentId = 'student_id',
   /** column name */
-  TuitionType = 'tuition_type',
-  /** column name */
-  UserId = 'user_id'
+  TuitionType = 'tuition_type'
 }
 
 /** input type for updating data in table "students" */
@@ -991,7 +972,6 @@ export type Students_Set_Input = {
   phone?: InputMaybe<Scalars['String']>;
   student_id?: InputMaybe<Scalars['bigint']>;
   tuition_type?: InputMaybe<Scalars['String']>;
-  user_id?: InputMaybe<Scalars['bigint']>;
 };
 
 /** aggregate stddev on columns */
@@ -999,14 +979,12 @@ export type Students_Stddev_Fields = {
   __typename?: 'students_stddev_fields';
   group?: Maybe<Scalars['Float']>;
   student_id?: Maybe<Scalars['Float']>;
-  user_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "students" */
 export type Students_Stddev_Order_By = {
   group?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
@@ -1014,14 +992,12 @@ export type Students_Stddev_Pop_Fields = {
   __typename?: 'students_stddev_pop_fields';
   group?: Maybe<Scalars['Float']>;
   student_id?: Maybe<Scalars['Float']>;
-  user_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "students" */
 export type Students_Stddev_Pop_Order_By = {
   group?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -1029,14 +1005,12 @@ export type Students_Stddev_Samp_Fields = {
   __typename?: 'students_stddev_samp_fields';
   group?: Maybe<Scalars['Float']>;
   student_id?: Maybe<Scalars['Float']>;
-  user_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "students" */
 export type Students_Stddev_Samp_Order_By = {
   group?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** Streaming cursor of the table "students" */
@@ -1057,7 +1031,6 @@ export type Students_Stream_Cursor_Value_Input = {
   phone?: InputMaybe<Scalars['String']>;
   student_id?: InputMaybe<Scalars['bigint']>;
   tuition_type?: InputMaybe<Scalars['String']>;
-  user_id?: InputMaybe<Scalars['bigint']>;
 };
 
 /** aggregate sum on columns */
@@ -1065,14 +1038,12 @@ export type Students_Sum_Fields = {
   __typename?: 'students_sum_fields';
   group?: Maybe<Scalars['Int']>;
   student_id?: Maybe<Scalars['bigint']>;
-  user_id?: Maybe<Scalars['bigint']>;
 };
 
 /** order by sum() on columns of table "students" */
 export type Students_Sum_Order_By = {
   group?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** update columns of table "students" */
@@ -1092,9 +1063,7 @@ export enum Students_Update_Column {
   /** column name */
   StudentId = 'student_id',
   /** column name */
-  TuitionType = 'tuition_type',
-  /** column name */
-  UserId = 'user_id'
+  TuitionType = 'tuition_type'
 }
 
 export type Students_Updates = {
@@ -1110,14 +1079,12 @@ export type Students_Var_Pop_Fields = {
   __typename?: 'students_var_pop_fields';
   group?: Maybe<Scalars['Float']>;
   student_id?: Maybe<Scalars['Float']>;
-  user_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "students" */
 export type Students_Var_Pop_Order_By = {
   group?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
@@ -1125,14 +1092,12 @@ export type Students_Var_Samp_Fields = {
   __typename?: 'students_var_samp_fields';
   group?: Maybe<Scalars['Float']>;
   student_id?: Maybe<Scalars['Float']>;
-  user_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "students" */
 export type Students_Var_Samp_Order_By = {
   group?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 /** aggregate variance on columns */
@@ -1140,14 +1105,12 @@ export type Students_Variance_Fields = {
   __typename?: 'students_variance_fields';
   group?: Maybe<Scalars['Float']>;
   student_id?: Maybe<Scalars['Float']>;
-  user_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "students" */
 export type Students_Variance_Order_By = {
   group?: InputMaybe<Order_By>;
   student_id?: InputMaybe<Order_By>;
-  user_id?: InputMaybe<Order_By>;
 };
 
 export type Subscription_Root = {
@@ -1296,7 +1259,7 @@ export type Subscription_RootUsers_AggregateArgs = {
 
 
 export type Subscription_RootUsers_By_PkArgs = {
-  user_id: Scalars['bigint'];
+  user_id: Scalars['String'];
 };
 
 
@@ -1304,6 +1267,19 @@ export type Subscription_RootUsers_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Users_Stream_Cursor_Input>>;
   where?: InputMaybe<Users_Bool_Exp>;
+};
+
+/** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
+export type Timestamptz_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['timestamptz']>;
+  _gt?: InputMaybe<Scalars['timestamptz']>;
+  _gte?: InputMaybe<Scalars['timestamptz']>;
+  _in?: InputMaybe<Array<Scalars['timestamptz']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['timestamptz']>;
+  _lte?: InputMaybe<Scalars['timestamptz']>;
+  _neq?: InputMaybe<Scalars['timestamptz']>;
+  _nin?: InputMaybe<Array<Scalars['timestamptz']>>;
 };
 
 /** columns and relationships of "user_type" */
@@ -1460,8 +1436,10 @@ export type User_Type_Updates = {
 /** columns and relationships of "users" */
 export type Users = {
   __typename?: 'users';
-  user_id: Scalars['bigint'];
-  user_password: Scalars['String'];
+  email?: Maybe<Scalars['String']>;
+  last_seen?: Maybe<Scalars['timestamptz']>;
+  password: Scalars['String'];
+  user_id: Scalars['String'];
   user_type: User_Type_Enum;
   username: Scalars['String'];
 };
@@ -1476,17 +1454,9 @@ export type Users_Aggregate = {
 /** aggregate fields of "users" */
 export type Users_Aggregate_Fields = {
   __typename?: 'users_aggregate_fields';
-  avg?: Maybe<Users_Avg_Fields>;
   count: Scalars['Int'];
   max?: Maybe<Users_Max_Fields>;
   min?: Maybe<Users_Min_Fields>;
-  stddev?: Maybe<Users_Stddev_Fields>;
-  stddev_pop?: Maybe<Users_Stddev_Pop_Fields>;
-  stddev_samp?: Maybe<Users_Stddev_Samp_Fields>;
-  sum?: Maybe<Users_Sum_Fields>;
-  var_pop?: Maybe<Users_Var_Pop_Fields>;
-  var_samp?: Maybe<Users_Var_Samp_Fields>;
-  variance?: Maybe<Users_Variance_Fields>;
 };
 
 
@@ -1496,19 +1466,15 @@ export type Users_Aggregate_FieldsCountArgs = {
   distinct?: InputMaybe<Scalars['Boolean']>;
 };
 
-/** aggregate avg on columns */
-export type Users_Avg_Fields = {
-  __typename?: 'users_avg_fields';
-  user_id?: Maybe<Scalars['Float']>;
-};
-
 /** Boolean expression to filter rows from the table "users". All fields are combined with a logical 'AND'. */
 export type Users_Bool_Exp = {
   _and?: InputMaybe<Array<Users_Bool_Exp>>;
   _not?: InputMaybe<Users_Bool_Exp>;
   _or?: InputMaybe<Array<Users_Bool_Exp>>;
-  user_id?: InputMaybe<Bigint_Comparison_Exp>;
-  user_password?: InputMaybe<String_Comparison_Exp>;
+  email?: InputMaybe<String_Comparison_Exp>;
+  last_seen?: InputMaybe<Timestamptz_Comparison_Exp>;
+  password?: InputMaybe<String_Comparison_Exp>;
+  user_id?: InputMaybe<String_Comparison_Exp>;
   user_type?: InputMaybe<User_Type_Enum_Comparison_Exp>;
   username?: InputMaybe<String_Comparison_Exp>;
 };
@@ -1519,15 +1485,12 @@ export enum Users_Constraint {
   UsersPkey = 'users_pkey'
 }
 
-/** input type for incrementing numeric columns in table "users" */
-export type Users_Inc_Input = {
-  user_id?: InputMaybe<Scalars['bigint']>;
-};
-
 /** input type for inserting data into table "users" */
 export type Users_Insert_Input = {
-  user_id?: InputMaybe<Scalars['bigint']>;
-  user_password?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+  last_seen?: InputMaybe<Scalars['timestamptz']>;
+  password?: InputMaybe<Scalars['String']>;
+  user_id?: InputMaybe<Scalars['String']>;
   user_type?: InputMaybe<User_Type_Enum>;
   username?: InputMaybe<Scalars['String']>;
 };
@@ -1535,16 +1498,20 @@ export type Users_Insert_Input = {
 /** aggregate max on columns */
 export type Users_Max_Fields = {
   __typename?: 'users_max_fields';
-  user_id?: Maybe<Scalars['bigint']>;
-  user_password?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  last_seen?: Maybe<Scalars['timestamptz']>;
+  password?: Maybe<Scalars['String']>;
+  user_id?: Maybe<Scalars['String']>;
   username?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type Users_Min_Fields = {
   __typename?: 'users_min_fields';
-  user_id?: Maybe<Scalars['bigint']>;
-  user_password?: Maybe<Scalars['String']>;
+  email?: Maybe<Scalars['String']>;
+  last_seen?: Maybe<Scalars['timestamptz']>;
+  password?: Maybe<Scalars['String']>;
+  user_id?: Maybe<Scalars['String']>;
   username?: Maybe<Scalars['String']>;
 };
 
@@ -1557,13 +1524,6 @@ export type Users_Mutation_Response = {
   returning: Array<Users>;
 };
 
-/** input type for inserting object relation for remote table "users" */
-export type Users_Obj_Rel_Insert_Input = {
-  data: Users_Insert_Input;
-  /** upsert condition */
-  on_conflict?: InputMaybe<Users_On_Conflict>;
-};
-
 /** on_conflict condition type for table "users" */
 export type Users_On_Conflict = {
   constraint: Users_Constraint;
@@ -1573,23 +1533,29 @@ export type Users_On_Conflict = {
 
 /** Ordering options when selecting data from "users". */
 export type Users_Order_By = {
+  email?: InputMaybe<Order_By>;
+  last_seen?: InputMaybe<Order_By>;
+  password?: InputMaybe<Order_By>;
   user_id?: InputMaybe<Order_By>;
-  user_password?: InputMaybe<Order_By>;
   user_type?: InputMaybe<Order_By>;
   username?: InputMaybe<Order_By>;
 };
 
 /** primary key columns input for table: users */
 export type Users_Pk_Columns_Input = {
-  user_id: Scalars['bigint'];
+  user_id: Scalars['String'];
 };
 
 /** select columns of table "users" */
 export enum Users_Select_Column {
   /** column name */
-  UserId = 'user_id',
+  Email = 'email',
   /** column name */
-  UserPassword = 'user_password',
+  LastSeen = 'last_seen',
+  /** column name */
+  Password = 'password',
+  /** column name */
+  UserId = 'user_id',
   /** column name */
   UserType = 'user_type',
   /** column name */
@@ -1598,28 +1564,12 @@ export enum Users_Select_Column {
 
 /** input type for updating data in table "users" */
 export type Users_Set_Input = {
-  user_id?: InputMaybe<Scalars['bigint']>;
-  user_password?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+  last_seen?: InputMaybe<Scalars['timestamptz']>;
+  password?: InputMaybe<Scalars['String']>;
+  user_id?: InputMaybe<Scalars['String']>;
   user_type?: InputMaybe<User_Type_Enum>;
   username?: InputMaybe<Scalars['String']>;
-};
-
-/** aggregate stddev on columns */
-export type Users_Stddev_Fields = {
-  __typename?: 'users_stddev_fields';
-  user_id?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_pop on columns */
-export type Users_Stddev_Pop_Fields = {
-  __typename?: 'users_stddev_pop_fields';
-  user_id?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate stddev_samp on columns */
-export type Users_Stddev_Samp_Fields = {
-  __typename?: 'users_stddev_samp_fields';
-  user_id?: Maybe<Scalars['Float']>;
 };
 
 /** Streaming cursor of the table "users" */
@@ -1632,24 +1582,24 @@ export type Users_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Users_Stream_Cursor_Value_Input = {
-  user_id?: InputMaybe<Scalars['bigint']>;
-  user_password?: InputMaybe<Scalars['String']>;
+  email?: InputMaybe<Scalars['String']>;
+  last_seen?: InputMaybe<Scalars['timestamptz']>;
+  password?: InputMaybe<Scalars['String']>;
+  user_id?: InputMaybe<Scalars['String']>;
   user_type?: InputMaybe<User_Type_Enum>;
   username?: InputMaybe<Scalars['String']>;
-};
-
-/** aggregate sum on columns */
-export type Users_Sum_Fields = {
-  __typename?: 'users_sum_fields';
-  user_id?: Maybe<Scalars['bigint']>;
 };
 
 /** update columns of table "users" */
 export enum Users_Update_Column {
   /** column name */
-  UserId = 'user_id',
+  Email = 'email',
   /** column name */
-  UserPassword = 'user_password',
+  LastSeen = 'last_seen',
+  /** column name */
+  Password = 'password',
+  /** column name */
+  UserId = 'user_id',
   /** column name */
   UserType = 'user_type',
   /** column name */
@@ -1657,43 +1607,27 @@ export enum Users_Update_Column {
 }
 
 export type Users_Updates = {
-  /** increments the numeric columns with given value of the filtered values */
-  _inc?: InputMaybe<Users_Inc_Input>;
   /** sets the columns of the filtered rows to the given values */
   _set?: InputMaybe<Users_Set_Input>;
   where: Users_Bool_Exp;
 };
 
-/** aggregate var_pop on columns */
-export type Users_Var_Pop_Fields = {
-  __typename?: 'users_var_pop_fields';
-  user_id?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate var_samp on columns */
-export type Users_Var_Samp_Fields = {
-  __typename?: 'users_var_samp_fields';
-  user_id?: Maybe<Scalars['Float']>;
-};
-
-/** aggregate variance on columns */
-export type Users_Variance_Fields = {
-  __typename?: 'users_variance_fields';
-  user_id?: Maybe<Scalars['Float']>;
-};
-
-export type MyQueryQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetStudentsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MyQueryQuery = { __typename?: 'query_root', users: Array<{ __typename?: 'users', user_id: any, user_password: string, user_type: User_Type_Enum, username: string }> };
+export type GetStudentsQuery = { __typename?: 'query_root', students: Array<{ __typename?: 'students', tuition_type: string, student_id: any, phone?: string | null, matricula: string, last_name: string, date_ins?: string | null, first_name: string, group?: number | null }> };
 
-export const MyQueryDocument = gql`
-    query MyQuery {
-  users {
-    user_id
-    user_password
-    user_type
-    username
+export const GetStudentsDocument = gql`
+    query getStudents {
+  students {
+    tuition_type
+    student_id
+    phone
+    matricula
+    last_name
+    date_ins
+    first_name
+    group
   }
 }
     `;
@@ -1701,8 +1635,8 @@ export const MyQueryDocument = gql`
   @Injectable({
     providedIn: 'root'
   })
-  export class MyQueryGQL extends Apollo.Query<MyQueryQuery, MyQueryQueryVariables> {
-    override document = MyQueryDocument;
+  export class GetStudentsGQL extends Apollo.Query<GetStudentsQuery, GetStudentsQueryVariables> {
+    override document = GetStudentsDocument;
     
     constructor(apollo: Apollo.Apollo) {
       super(apollo);

@@ -23,33 +23,32 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './auth/login/login.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { ImageSliderModule } from './imageSlider/imageSlider.module';
-import { RegisterComponent } from './auth/register/register.component';
-import { SignupModule } from './auth/register/register.module';
-import { LoginModule } from './auth/login/login.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox'
 import { FormsModule } from '@angular/forms';
 import { AlumnosComponent } from './alumnos/alumnos.component';
+import { AuthModule } from '@auth0/auth0-angular';
+import { Auth0loginButtonComponent } from './components/auth0login-button/auth0login-button.component';
+import { Auth0logoutButtonComponent } from './components/auth0logout-button/auth0logout-button.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     MatTableComponent,
     RegFormComponent,
-    LoginComponent,
     FooterComponent,
     HomeComponent,
-    RegisterComponent,
     DashboardComponent,
     AlumnosComponent,
+    Auth0loginButtonComponent,
+    Auth0logoutButtonComponent,
   ],
   imports: [
     ImageSliderModule,
@@ -74,12 +73,14 @@ import { AlumnosComponent } from './alumnos/alumnos.component';
     MatDividerModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    SignupModule,
-    LoginModule,
     MatGridListModule,
     MatMenuModule,
     MatCheckboxModule,
     FormsModule,
+    AuthModule.forRoot({
+      domain: 'dev-fhyiwtmosifs7eqw.us.auth0.com',
+      clientId: '3XPBj5S1n9ckPqYsA7aTLoY0Z6CDor2S'
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@
       <mat-icon>home</mat-icon>
     </a>
     <a href="http://localhost:4200" mat-stroked-button>Oferta Educativa</a>
-    <a href="http://localhost:4200/login" mat-stroked-button>Login</a>
+    <a> <app-auth0login-button
+      *ngIf="(auth.isAuthenticated$ | async) === false"></app-auth0login-button> </a>
   </div>
 </mat-toolbar>

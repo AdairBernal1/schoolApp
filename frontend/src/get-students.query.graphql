@@ -1,0 +1,12 @@
+query getStudents {
+  students {
+    tuition_type
+    student_id
+    phone
+    matricula
+    last_name
+    date_ins
+    first_name
+    group
+  }
+}
