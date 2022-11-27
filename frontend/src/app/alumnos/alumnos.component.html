@@ -1,2 +1,6 @@
-<p>hola esta funcionando!!!</p>
-
+<div *ngFor="let student of allStudents">
+    <p>{{student.student_id}}</p>
+    <p>{{student.matricula}}</p>
+    <p>{{student.first_name}}</p>
+    <p>{{student.last_name}}</p>
+</div>
