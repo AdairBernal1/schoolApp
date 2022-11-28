@@ -37,5 +37,15 @@ export class AlumnosComponent implements OnInit {
         this.allStudents = data.students;
       });
   }
-  displayedColumns: string[] = ['ID', 'Matricula', 'Nombre', 'Apellido', 'Telefono', 'Grupo', 'FechaInscripcion', 'TipoPago', 'Accion'];
+  displayedColumns: string[] = [
+    'ID',
+    'Matricula',
+    'Nombre',
+    'Apellido',
+    'Telefono',
+    'Grupo',
+    'FechaInscripcion',
+    'TipoPago',
+    'Accion',
+  ];
 }

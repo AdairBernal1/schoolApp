@@ -12,8 +12,8 @@ export class Auth0loginButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login($redirect_uri: string, $appState: string): void {
-    this.auth.loginWithRedirect({redirect_uri: $redirect_uri, appState: { target: $appState }});
+  login($appState: string): void {
+    this.auth.loginWithRedirect({appState: { target: $appState }});
   }
 
 }

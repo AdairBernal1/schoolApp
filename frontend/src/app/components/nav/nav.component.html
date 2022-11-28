@@ -1,11 +1,12 @@
 <mat-toolbar class="flex justify-content-between">
   <h1>Escuela de Computacion e Ingles de Sinaloa</h1>
   <div>
-    <a href='http://localhost:4200' mat-icon-button aria-label="Inicio">
+    <a routerLink="/" mat-icon-button aria-label="Inicio">
       <mat-icon>home</mat-icon>
     </a>
-    <a href="http://localhost:4200" mat-stroked-button>Oferta Educativa</a>
+    <a routerLink="/" mat-stroked-button>Oferta Educativa</a>
     <a> <app-auth0login-button
       *ngIf="(auth.isAuthenticated$ | async) === false"></app-auth0login-button> </a>
+    <a *ngIf="auth.isAuthenticated$ | async" routerLink="/dashboard" mat-stroked-button>WEB CECSIN</a>
   </div>
 </mat-toolbar>
