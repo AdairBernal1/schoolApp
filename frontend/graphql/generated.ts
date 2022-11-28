@@ -350,6 +350,10 @@ export type Mutation_Root = {
   delete_students?: Maybe<Students_Mutation_Response>;
   /** delete single row from the table: "students" */
   delete_students_by_pk?: Maybe<Students>;
+  /** delete data from the table: "teachers" */
+  delete_teachers?: Maybe<Teachers_Mutation_Response>;
+  /** delete single row from the table: "teachers" */
+  delete_teachers_by_pk?: Maybe<Teachers>;
   /** delete data from the table: "user_type" */
   delete_user_type?: Maybe<User_Type_Mutation_Response>;
   /** delete single row from the table: "user_type" */
@@ -366,6 +370,10 @@ export type Mutation_Root = {
   insert_students?: Maybe<Students_Mutation_Response>;
   /** insert a single row into the table: "students" */
   insert_students_one?: Maybe<Students>;
+  /** insert data into the table: "teachers" */
+  insert_teachers?: Maybe<Teachers_Mutation_Response>;
+  /** insert a single row into the table: "teachers" */
+  insert_teachers_one?: Maybe<Teachers>;
   /** insert data into the table: "user_type" */
   insert_user_type?: Maybe<User_Type_Mutation_Response>;
   /** insert a single row into the table: "user_type" */
@@ -386,6 +394,12 @@ export type Mutation_Root = {
   update_students_by_pk?: Maybe<Students>;
   /** update multiples rows of table: "students" */
   update_students_many?: Maybe<Array<Maybe<Students_Mutation_Response>>>;
+  /** update data of the table: "teachers" */
+  update_teachers?: Maybe<Teachers_Mutation_Response>;
+  /** update single row of the table: "teachers" */
+  update_teachers_by_pk?: Maybe<Teachers>;
+  /** update multiples rows of table: "teachers" */
+  update_teachers_many?: Maybe<Array<Maybe<Teachers_Mutation_Response>>>;
   /** update data of the table: "user_type" */
   update_user_type?: Maybe<User_Type_Mutation_Response>;
   /** update single row of the table: "user_type" */
@@ -422,6 +436,18 @@ export type Mutation_RootDelete_StudentsArgs = {
 /** mutation root */
 export type Mutation_RootDelete_Students_By_PkArgs = {
   student_id: Scalars['bigint'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_TeachersArgs = {
+  where: Teachers_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Teachers_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -474,6 +500,20 @@ export type Mutation_RootInsert_StudentsArgs = {
 export type Mutation_RootInsert_Students_OneArgs = {
   object: Students_Insert_Input;
   on_conflict?: InputMaybe<Students_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_TeachersArgs = {
+  objects: Array<Teachers_Insert_Input>;
+  on_conflict?: InputMaybe<Teachers_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Teachers_OneArgs = {
+  object: Teachers_Insert_Input;
+  on_conflict?: InputMaybe<Teachers_On_Conflict>;
 };
 
 
@@ -550,6 +590,28 @@ export type Mutation_RootUpdate_Students_ManyArgs = {
 
 
 /** mutation root */
+export type Mutation_RootUpdate_TeachersArgs = {
+  _inc?: InputMaybe<Teachers_Inc_Input>;
+  _set?: InputMaybe<Teachers_Set_Input>;
+  where: Teachers_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Teachers_By_PkArgs = {
+  _inc?: InputMaybe<Teachers_Inc_Input>;
+  _set?: InputMaybe<Teachers_Set_Input>;
+  pk_columns: Teachers_Pk_Columns_Input;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Teachers_ManyArgs = {
+  updates: Array<Teachers_Updates>;
+};
+
+
+/** mutation root */
 export type Mutation_RootUpdate_User_TypeArgs = {
   _set?: InputMaybe<User_Type_Set_Input>;
   where: User_Type_Bool_Exp;
@@ -618,6 +680,12 @@ export type Query_Root = {
   students_aggregate: Students_Aggregate;
   /** fetch data from the table: "students" using primary key columns */
   students_by_pk?: Maybe<Students>;
+  /** fetch data from the table: "teachers" */
+  teachers: Array<Teachers>;
+  /** fetch aggregated fields from the table: "teachers" */
+  teachers_aggregate: Teachers_Aggregate;
+  /** fetch data from the table: "teachers" using primary key columns */
+  teachers_by_pk?: Maybe<Teachers>;
   /** fetch data from the table: "user_type" */
   user_type: Array<User_Type>;
   /** fetch aggregated fields from the table: "user_type" */
@@ -676,6 +744,29 @@ export type Query_RootStudents_AggregateArgs = {
 
 export type Query_RootStudents_By_PkArgs = {
   student_id: Scalars['bigint'];
+};
+
+
+export type Query_RootTeachersArgs = {
+  distinct_on?: InputMaybe<Array<Teachers_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Teachers_Order_By>>;
+  where?: InputMaybe<Teachers_Bool_Exp>;
+};
+
+
+export type Query_RootTeachers_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Teachers_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Teachers_Order_By>>;
+  where?: InputMaybe<Teachers_Bool_Exp>;
+};
+
+
+export type Query_RootTeachers_By_PkArgs = {
+  id: Scalars['Int'];
 };
 
 
@@ -1131,6 +1222,14 @@ export type Subscription_Root = {
   students_by_pk?: Maybe<Students>;
   /** fetch data from the table in a streaming manner: "students" */
   students_stream: Array<Students>;
+  /** fetch data from the table: "teachers" */
+  teachers: Array<Teachers>;
+  /** fetch aggregated fields from the table: "teachers" */
+  teachers_aggregate: Teachers_Aggregate;
+  /** fetch data from the table: "teachers" using primary key columns */
+  teachers_by_pk?: Maybe<Teachers>;
+  /** fetch data from the table in a streaming manner: "teachers" */
+  teachers_stream: Array<Teachers>;
   /** fetch data from the table: "user_type" */
   user_type: Array<User_Type>;
   /** fetch aggregated fields from the table: "user_type" */
@@ -1210,6 +1309,36 @@ export type Subscription_RootStudents_StreamArgs = {
 };
 
 
+export type Subscription_RootTeachersArgs = {
+  distinct_on?: InputMaybe<Array<Teachers_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Teachers_Order_By>>;
+  where?: InputMaybe<Teachers_Bool_Exp>;
+};
+
+
+export type Subscription_RootTeachers_AggregateArgs = {
+  distinct_on?: InputMaybe<Array<Teachers_Select_Column>>;
+  limit?: InputMaybe<Scalars['Int']>;
+  offset?: InputMaybe<Scalars['Int']>;
+  order_by?: InputMaybe<Array<Teachers_Order_By>>;
+  where?: InputMaybe<Teachers_Bool_Exp>;
+};
+
+
+export type Subscription_RootTeachers_By_PkArgs = {
+  id: Scalars['Int'];
+};
+
+
+export type Subscription_RootTeachers_StreamArgs = {
+  batch_size: Scalars['Int'];
+  cursor: Array<InputMaybe<Teachers_Stream_Cursor_Input>>;
+  where?: InputMaybe<Teachers_Bool_Exp>;
+};
+
+
 export type Subscription_RootUser_TypeArgs = {
   distinct_on?: InputMaybe<Array<User_Type_Select_Column>>;
   limit?: InputMaybe<Scalars['Int']>;
@@ -1267,6 +1396,238 @@ export type Subscription_RootUsers_StreamArgs = {
   batch_size: Scalars['Int'];
   cursor: Array<InputMaybe<Users_Stream_Cursor_Input>>;
   where?: InputMaybe<Users_Bool_Exp>;
+};
+
+/** columns and relationships of "teachers" */
+export type Teachers = {
+  __typename?: 'teachers';
+  created_at: Scalars['timestamptz'];
+  first_name: Scalars['String'];
+  hire_date: Scalars['String'];
+  id: Scalars['Int'];
+  last_name: Scalars['String'];
+};
+
+/** aggregated selection of "teachers" */
+export type Teachers_Aggregate = {
+  __typename?: 'teachers_aggregate';
+  aggregate?: Maybe<Teachers_Aggregate_Fields>;
+  nodes: Array<Teachers>;
+};
+
+/** aggregate fields of "teachers" */
+export type Teachers_Aggregate_Fields = {
+  __typename?: 'teachers_aggregate_fields';
+  avg?: Maybe<Teachers_Avg_Fields>;
+  count: Scalars['Int'];
+  max?: Maybe<Teachers_Max_Fields>;
+  min?: Maybe<Teachers_Min_Fields>;
+  stddev?: Maybe<Teachers_Stddev_Fields>;
+  stddev_pop?: Maybe<Teachers_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Teachers_Stddev_Samp_Fields>;
+  sum?: Maybe<Teachers_Sum_Fields>;
+  var_pop?: Maybe<Teachers_Var_Pop_Fields>;
+  var_samp?: Maybe<Teachers_Var_Samp_Fields>;
+  variance?: Maybe<Teachers_Variance_Fields>;
+};
+
+
+/** aggregate fields of "teachers" */
+export type Teachers_Aggregate_FieldsCountArgs = {
+  columns?: InputMaybe<Array<Teachers_Select_Column>>;
+  distinct?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** aggregate avg on columns */
+export type Teachers_Avg_Fields = {
+  __typename?: 'teachers_avg_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Boolean expression to filter rows from the table "teachers". All fields are combined with a logical 'AND'. */
+export type Teachers_Bool_Exp = {
+  _and?: InputMaybe<Array<Teachers_Bool_Exp>>;
+  _not?: InputMaybe<Teachers_Bool_Exp>;
+  _or?: InputMaybe<Array<Teachers_Bool_Exp>>;
+  created_at?: InputMaybe<Timestamptz_Comparison_Exp>;
+  first_name?: InputMaybe<String_Comparison_Exp>;
+  hire_date?: InputMaybe<String_Comparison_Exp>;
+  id?: InputMaybe<Int_Comparison_Exp>;
+  last_name?: InputMaybe<String_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "teachers" */
+export enum Teachers_Constraint {
+  /** unique or primary key constraint on columns "id" */
+  TeachersPkey = 'teachers_pkey'
+}
+
+/** input type for incrementing numeric columns in table "teachers" */
+export type Teachers_Inc_Input = {
+  id?: InputMaybe<Scalars['Int']>;
+};
+
+/** input type for inserting data into table "teachers" */
+export type Teachers_Insert_Input = {
+  created_at?: InputMaybe<Scalars['timestamptz']>;
+  first_name?: InputMaybe<Scalars['String']>;
+  hire_date?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Int']>;
+  last_name?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate max on columns */
+export type Teachers_Max_Fields = {
+  __typename?: 'teachers_max_fields';
+  created_at?: Maybe<Scalars['timestamptz']>;
+  first_name?: Maybe<Scalars['String']>;
+  hire_date?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  last_name?: Maybe<Scalars['String']>;
+};
+
+/** aggregate min on columns */
+export type Teachers_Min_Fields = {
+  __typename?: 'teachers_min_fields';
+  created_at?: Maybe<Scalars['timestamptz']>;
+  first_name?: Maybe<Scalars['String']>;
+  hire_date?: Maybe<Scalars['String']>;
+  id?: Maybe<Scalars['Int']>;
+  last_name?: Maybe<Scalars['String']>;
+};
+
+/** response of any mutation on the table "teachers" */
+export type Teachers_Mutation_Response = {
+  __typename?: 'teachers_mutation_response';
+  /** number of rows affected by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data from the rows affected by the mutation */
+  returning: Array<Teachers>;
+};
+
+/** on_conflict condition type for table "teachers" */
+export type Teachers_On_Conflict = {
+  constraint: Teachers_Constraint;
+  update_columns?: Array<Teachers_Update_Column>;
+  where?: InputMaybe<Teachers_Bool_Exp>;
+};
+
+/** Ordering options when selecting data from "teachers". */
+export type Teachers_Order_By = {
+  created_at?: InputMaybe<Order_By>;
+  first_name?: InputMaybe<Order_By>;
+  hire_date?: InputMaybe<Order_By>;
+  id?: InputMaybe<Order_By>;
+  last_name?: InputMaybe<Order_By>;
+};
+
+/** primary key columns input for table: teachers */
+export type Teachers_Pk_Columns_Input = {
+  id: Scalars['Int'];
+};
+
+/** select columns of table "teachers" */
+export enum Teachers_Select_Column {
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  FirstName = 'first_name',
+  /** column name */
+  HireDate = 'hire_date',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  LastName = 'last_name'
+}
+
+/** input type for updating data in table "teachers" */
+export type Teachers_Set_Input = {
+  created_at?: InputMaybe<Scalars['timestamptz']>;
+  first_name?: InputMaybe<Scalars['String']>;
+  hire_date?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Int']>;
+  last_name?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate stddev on columns */
+export type Teachers_Stddev_Fields = {
+  __typename?: 'teachers_stddev_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Teachers_Stddev_Pop_Fields = {
+  __typename?: 'teachers_stddev_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Teachers_Stddev_Samp_Fields = {
+  __typename?: 'teachers_stddev_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** Streaming cursor of the table "teachers" */
+export type Teachers_Stream_Cursor_Input = {
+  /** Stream column input with initial value */
+  initial_value: Teachers_Stream_Cursor_Value_Input;
+  /** cursor ordering */
+  ordering?: InputMaybe<Cursor_Ordering>;
+};
+
+/** Initial value of the column from where the streaming should start */
+export type Teachers_Stream_Cursor_Value_Input = {
+  created_at?: InputMaybe<Scalars['timestamptz']>;
+  first_name?: InputMaybe<Scalars['String']>;
+  hire_date?: InputMaybe<Scalars['String']>;
+  id?: InputMaybe<Scalars['Int']>;
+  last_name?: InputMaybe<Scalars['String']>;
+};
+
+/** aggregate sum on columns */
+export type Teachers_Sum_Fields = {
+  __typename?: 'teachers_sum_fields';
+  id?: Maybe<Scalars['Int']>;
+};
+
+/** update columns of table "teachers" */
+export enum Teachers_Update_Column {
+  /** column name */
+  CreatedAt = 'created_at',
+  /** column name */
+  FirstName = 'first_name',
+  /** column name */
+  HireDate = 'hire_date',
+  /** column name */
+  Id = 'id',
+  /** column name */
+  LastName = 'last_name'
+}
+
+export type Teachers_Updates = {
+  /** increments the numeric columns with given value of the filtered values */
+  _inc?: InputMaybe<Teachers_Inc_Input>;
+  /** sets the columns of the filtered rows to the given values */
+  _set?: InputMaybe<Teachers_Set_Input>;
+  where: Teachers_Bool_Exp;
+};
+
+/** aggregate var_pop on columns */
+export type Teachers_Var_Pop_Fields = {
+  __typename?: 'teachers_var_pop_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate var_samp on columns */
+export type Teachers_Var_Samp_Fields = {
+  __typename?: 'teachers_var_samp_fields';
+  id?: Maybe<Scalars['Float']>;
+};
+
+/** aggregate variance on columns */
+export type Teachers_Variance_Fields = {
+  __typename?: 'teachers_variance_fields';
+  id?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to compare columns of type "timestamptz". All fields are combined with logical 'AND'. */
