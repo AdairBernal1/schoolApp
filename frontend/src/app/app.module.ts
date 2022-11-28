@@ -37,6 +37,8 @@ import { AlumnosComponent } from './alumnos/alumnos.component';
 import { AuthModule } from '@auth0/auth0-angular';
 import { Auth0loginButtonComponent } from './components/auth0login-button/auth0login-button.component';
 import { Auth0logoutButtonComponent } from './components/auth0logout-button/auth0logout-button.component';
+import { GruposComponent } from './grupos/grupos.component';
+import { TeachersComponent } from './teachers/teachers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +51,8 @@ import { Auth0logoutButtonComponent } from './components/auth0logout-button/auth
     AlumnosComponent,
     Auth0loginButtonComponent,
     Auth0logoutButtonComponent,
+    GruposComponent,
+    TeachersComponent,
   ],
   imports: [
     ImageSliderModule,
