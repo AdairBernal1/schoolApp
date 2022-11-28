@@ -1,21 +1,27 @@
-.grid-container {
-  margin: 20px;
-}
-
-.dashboard-card {
+.example-container {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  bottom: 15px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.sidenav-container {
+  height: 100%;
 }
 
-.more-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
+.sidenav {
+  width: 200px;
 }
 
-.dashboard-card-content {
-  text-align: center;
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.mat-nav-list a{
+  padding: 10px;
 }
