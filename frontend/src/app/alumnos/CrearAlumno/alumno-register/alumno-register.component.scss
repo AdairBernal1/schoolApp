@@ -1,0 +1,17 @@
+.form-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+.form-row{
+}
+.register-button{
+  margin: 2px;
+  background-color: rgba(1, 236, 32, 0.929);
+  color: white;
+}
+.cancel-button{
+  margin: 2px;
+  background-color: rgba(243, 0, 0, 0.966);
+  color: white;
+}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Students } from 'graphql/generated';
 
-const GET_STUDENTS = gql`
+export const GET_STUDENTS = gql`
   query getStudents {
     students {
       tuition_type
@@ -16,7 +16,6 @@ const GET_STUDENTS = gql`
     }
   }
 `;
-
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
@@ -36,7 +35,9 @@ export class AlumnosComponent implements OnInit {
         console.log(loading);
         this.allStudents = data.students;
       });
+
   }
+
   displayedColumns: string[] = [
     'ID',
     'Matricula',
