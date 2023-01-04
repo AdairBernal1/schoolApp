@@ -32,6 +32,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatCheckboxModule } from '@angular/material/checkbox'
+import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { AlumnosComponent } from './alumnos/alumnos.component';
 import { AuthModule } from '@auth0/auth0-angular';
@@ -39,7 +40,11 @@ import { Auth0loginButtonComponent } from './components/auth0login-button/auth0l
 import { Auth0logoutButtonComponent } from './components/auth0logout-button/auth0logout-button.component';
 import { GruposComponent } from './grupos/grupos.component';
 import { TeachersComponent } from './teachers/teachers.component';
-import { AlumnoRegisterComponent } from './alumnos/CrearAlumno/alumno-register/alumno-register.component';
+import { AlumnoRegisterComponent } from './alumnos/CrearAlumno copy/alumno-register/alumno-register.component';
+import { ModificarAlumnoComponent } from './alumnos/modificar-alumno/modificar-alumno.component';
+import { ConfirmationDialogComponent } from './alumnos/confirmation-dialog/confirmation-dialog.component';
+import { GrupoRegisterComponent } from './grupos/grupo-register/grupo-register.component';
+import { ModificarGrupoComponent } from './grupos/modificar-grupo/modificar-grupo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +60,10 @@ import { AlumnoRegisterComponent } from './alumnos/CrearAlumno/alumno-register/a
     GruposComponent,
     TeachersComponent,
     AlumnoRegisterComponent,
+    ModificarAlumnoComponent,
+    ConfirmationDialogComponent,
+    GrupoRegisterComponent,
+    ModificarGrupoComponent,
   ],
   imports: [
     ImageSliderModule,
@@ -82,13 +91,14 @@ import { AlumnoRegisterComponent } from './alumnos/CrearAlumno/alumno-register/a
     MatGridListModule,
     MatMenuModule,
     MatCheckboxModule,
+    MatDialogModule,
     FormsModule,
     AuthModule.forRoot({
       domain: 'dev-fhyiwtmosifs7eqw.us.auth0.com',
       clientId: '3XPBj5S1n9ckPqYsA7aTLoY0Z6CDor2S'
     }),
   ],
-  providers: [],
+  providers: [AlumnosComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
