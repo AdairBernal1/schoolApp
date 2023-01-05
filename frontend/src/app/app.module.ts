@@ -45,6 +45,8 @@ import { ModificarAlumnoComponent } from './alumnos/modificar-alumno/modificar-a
 import { ConfirmationDialogComponent } from './alumnos/confirmation-dialog/confirmation-dialog.component';
 import { GrupoRegisterComponent } from './grupos/grupo-register/grupo-register.component';
 import { ModificarGrupoComponent } from './grupos/modificar-grupo/modificar-grupo.component';
+import { TeacherRegisterComponent } from './teachers/teacher-register/teacher-register.component';
+import { ModificarTeacherComponent } from './teachers/modificar-teacher/modificar-teacher.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +66,8 @@ import { ModificarGrupoComponent } from './grupos/modificar-grupo/modificar-grup
     ConfirmationDialogComponent,
     GrupoRegisterComponent,
     ModificarGrupoComponent,
+    TeacherRegisterComponent,
+    ModificarTeacherComponent,
   ],
   imports: [
     ImageSliderModule,

@@ -9,6 +9,8 @@ import { GrupoRegisterComponent } from './grupos/grupo-register/grupo-register.c
 import { GruposComponent } from './grupos/grupos.component';
 import { ModificarGrupoComponent } from './grupos/modificar-grupo/modificar-grupo.component';
 import { HomeComponent } from './home/home.component';
+import { ModificarTeacherComponent } from './teachers/modificar-teacher/modificar-teacher.component';
+import { TeacherRegisterComponent } from './teachers/teacher-register/teacher-register.component';
 import { TeachersComponent } from './teachers/teachers.component';
 
 const routes: Routes = [
@@ -27,7 +29,10 @@ const routes: Routes = [
         {path: 'edit/:id', component: ModificarGrupoComponent, canActivate: [AuthGuard]}
       ],
       canActivate: [AuthGuard]},
-      { path: 'teachers', component: TeachersComponent, canActivate: [AuthGuard]},
+      { path: 'teachers', component: TeachersComponent, children:[
+        {path: 'crear', component: TeacherRegisterComponent, canActivate: [AuthGuard]},
+        {path: 'edit/:id', component: ModificarTeacherComponent, canActivate: [AuthGuard]}
+      ], canActivate: [AuthGuard]},
     ],
     canActivate: [AuthGuard]
   },
