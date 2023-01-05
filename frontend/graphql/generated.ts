@@ -13,6 +13,7 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
+  numeric: any;
 };
 
 /** Boolean expression to compare columns of type "Int". All fields are combined with logical 'AND'. */
@@ -72,11 +73,11 @@ export enum Cursor_Ordering {
 /** columns and relationships of "group" */
 export type Group = {
   __typename?: 'group';
-  current_teacher?: Maybe<Scalars['Int']>;
+  current_teacher: Scalars['String'];
   day: Scalars['String'];
-  group_level?: Maybe<Scalars['String']>;
+  group_level: Scalars['String'];
   id: Scalars['Int'];
-  previous_teachers?: Maybe<Scalars['Int']>;
+  previous_teachers?: Maybe<Scalars['String']>;
   time: Scalars['String'];
 };
 
@@ -113,9 +114,7 @@ export type Group_Aggregate_FieldsCountArgs = {
 /** aggregate avg on columns */
 export type Group_Avg_Fields = {
   __typename?: 'group_avg_fields';
-  current_teacher?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  previous_teachers?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "group". All fields are combined with a logical 'AND'. */
@@ -123,60 +122,54 @@ export type Group_Bool_Exp = {
   _and?: InputMaybe<Array<Group_Bool_Exp>>;
   _not?: InputMaybe<Group_Bool_Exp>;
   _or?: InputMaybe<Array<Group_Bool_Exp>>;
-  current_teacher?: InputMaybe<Int_Comparison_Exp>;
+  current_teacher?: InputMaybe<String_Comparison_Exp>;
   day?: InputMaybe<String_Comparison_Exp>;
   group_level?: InputMaybe<String_Comparison_Exp>;
   id?: InputMaybe<Int_Comparison_Exp>;
-  previous_teachers?: InputMaybe<Int_Comparison_Exp>;
+  previous_teachers?: InputMaybe<String_Comparison_Exp>;
   time?: InputMaybe<String_Comparison_Exp>;
 };
 
 /** unique or primary key constraints on table "group" */
 export enum Group_Constraint {
-  /** unique or primary key constraint on columns "current_teacher" */
-  GroupCurrentTeacherKey = 'group_current_teacher_key',
   /** unique or primary key constraint on columns "id" */
-  GroupPkey = 'group_pkey',
-  /** unique or primary key constraint on columns "previous_teachers" */
-  GroupPreviousTeachersKey = 'group_previous_teachers_key'
+  GroupPkey = 'group_pkey'
 }
 
 /** input type for incrementing numeric columns in table "group" */
 export type Group_Inc_Input = {
-  current_teacher?: InputMaybe<Scalars['Int']>;
   id?: InputMaybe<Scalars['Int']>;
-  previous_teachers?: InputMaybe<Scalars['Int']>;
 };
 
 /** input type for inserting data into table "group" */
 export type Group_Insert_Input = {
-  current_teacher?: InputMaybe<Scalars['Int']>;
+  current_teacher?: InputMaybe<Scalars['String']>;
   day?: InputMaybe<Scalars['String']>;
   group_level?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['Int']>;
-  previous_teachers?: InputMaybe<Scalars['Int']>;
+  previous_teachers?: InputMaybe<Scalars['String']>;
   time?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate max on columns */
 export type Group_Max_Fields = {
   __typename?: 'group_max_fields';
-  current_teacher?: Maybe<Scalars['Int']>;
+  current_teacher?: Maybe<Scalars['String']>;
   day?: Maybe<Scalars['String']>;
   group_level?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
-  previous_teachers?: Maybe<Scalars['Int']>;
+  previous_teachers?: Maybe<Scalars['String']>;
   time?: Maybe<Scalars['String']>;
 };
 
 /** aggregate min on columns */
 export type Group_Min_Fields = {
   __typename?: 'group_min_fields';
-  current_teacher?: Maybe<Scalars['Int']>;
+  current_teacher?: Maybe<Scalars['String']>;
   day?: Maybe<Scalars['String']>;
   group_level?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
-  previous_teachers?: Maybe<Scalars['Int']>;
+  previous_teachers?: Maybe<Scalars['String']>;
   time?: Maybe<Scalars['String']>;
 };
 
@@ -229,36 +222,30 @@ export enum Group_Select_Column {
 
 /** input type for updating data in table "group" */
 export type Group_Set_Input = {
-  current_teacher?: InputMaybe<Scalars['Int']>;
+  current_teacher?: InputMaybe<Scalars['String']>;
   day?: InputMaybe<Scalars['String']>;
   group_level?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['Int']>;
-  previous_teachers?: InputMaybe<Scalars['Int']>;
+  previous_teachers?: InputMaybe<Scalars['String']>;
   time?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate stddev on columns */
 export type Group_Stddev_Fields = {
   __typename?: 'group_stddev_fields';
-  current_teacher?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  previous_teachers?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Group_Stddev_Pop_Fields = {
   __typename?: 'group_stddev_pop_fields';
-  current_teacher?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  previous_teachers?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Group_Stddev_Samp_Fields = {
   __typename?: 'group_stddev_samp_fields';
-  current_teacher?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  previous_teachers?: Maybe<Scalars['Float']>;
 };
 
 /** Streaming cursor of the table "group" */
@@ -271,20 +258,18 @@ export type Group_Stream_Cursor_Input = {
 
 /** Initial value of the column from where the streaming should start */
 export type Group_Stream_Cursor_Value_Input = {
-  current_teacher?: InputMaybe<Scalars['Int']>;
+  current_teacher?: InputMaybe<Scalars['String']>;
   day?: InputMaybe<Scalars['String']>;
   group_level?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['Int']>;
-  previous_teachers?: InputMaybe<Scalars['Int']>;
+  previous_teachers?: InputMaybe<Scalars['String']>;
   time?: InputMaybe<Scalars['String']>;
 };
 
 /** aggregate sum on columns */
 export type Group_Sum_Fields = {
   __typename?: 'group_sum_fields';
-  current_teacher?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
-  previous_teachers?: Maybe<Scalars['Int']>;
 };
 
 /** update columns of table "group" */
@@ -314,25 +299,19 @@ export type Group_Updates = {
 /** aggregate var_pop on columns */
 export type Group_Var_Pop_Fields = {
   __typename?: 'group_var_pop_fields';
-  current_teacher?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  previous_teachers?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
 export type Group_Var_Samp_Fields = {
   __typename?: 'group_var_samp_fields';
-  current_teacher?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  previous_teachers?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
 export type Group_Variance_Fields = {
   __typename?: 'group_variance_fields';
-  current_teacher?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
-  previous_teachers?: Maybe<Scalars['Float']>;
 };
 
 /** mutation root */
@@ -526,6 +505,19 @@ export type Mutation_RootUpdate_Teacher_ManyArgs = {
   updates: Array<Teacher_Updates>;
 };
 
+/** Boolean expression to compare columns of type "numeric". All fields are combined with logical 'AND'. */
+export type Numeric_Comparison_Exp = {
+  _eq?: InputMaybe<Scalars['numeric']>;
+  _gt?: InputMaybe<Scalars['numeric']>;
+  _gte?: InputMaybe<Scalars['numeric']>;
+  _in?: InputMaybe<Array<Scalars['numeric']>>;
+  _is_null?: InputMaybe<Scalars['Boolean']>;
+  _lt?: InputMaybe<Scalars['numeric']>;
+  _lte?: InputMaybe<Scalars['numeric']>;
+  _neq?: InputMaybe<Scalars['numeric']>;
+  _nin?: InputMaybe<Array<Scalars['numeric']>>;
+};
+
 /** column ordering options */
 export enum Order_By {
   /** in ascending order, nulls last */
@@ -640,12 +632,15 @@ export type Student = {
   first_name: Scalars['String'];
   group: Scalars['Int'];
   id: Scalars['Int'];
+  initial_pay_date: Scalars['String'];
   last_name: Scalars['String'];
-  last_pay_date?: Maybe<Scalars['String']>;
+  last_pay_date: Scalars['String'];
   matricula: Scalars['String'];
   next_pay_date: Scalars['String'];
+  pay_amount: Scalars['numeric'];
   payment_status: Scalars['String'];
   phone: Scalars['String'];
+  status: Scalars['String'];
   student_level: Scalars['String'];
 };
 
@@ -684,6 +679,7 @@ export type Student_Avg_Fields = {
   __typename?: 'student_avg_fields';
   group?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
+  pay_amount?: Maybe<Scalars['Float']>;
 };
 
 /** Boolean expression to filter rows from the table "student". All fields are combined with a logical 'AND'. */
@@ -695,12 +691,15 @@ export type Student_Bool_Exp = {
   first_name?: InputMaybe<String_Comparison_Exp>;
   group?: InputMaybe<Int_Comparison_Exp>;
   id?: InputMaybe<Int_Comparison_Exp>;
+  initial_pay_date?: InputMaybe<String_Comparison_Exp>;
   last_name?: InputMaybe<String_Comparison_Exp>;
   last_pay_date?: InputMaybe<String_Comparison_Exp>;
   matricula?: InputMaybe<String_Comparison_Exp>;
   next_pay_date?: InputMaybe<String_Comparison_Exp>;
+  pay_amount?: InputMaybe<Numeric_Comparison_Exp>;
   payment_status?: InputMaybe<String_Comparison_Exp>;
   phone?: InputMaybe<String_Comparison_Exp>;
+  status?: InputMaybe<String_Comparison_Exp>;
   student_level?: InputMaybe<String_Comparison_Exp>;
 };
 
@@ -716,6 +715,7 @@ export enum Student_Constraint {
 export type Student_Inc_Input = {
   group?: InputMaybe<Scalars['Int']>;
   id?: InputMaybe<Scalars['Int']>;
+  pay_amount?: InputMaybe<Scalars['numeric']>;
 };
 
 /** input type for inserting data into table "student" */
@@ -724,12 +724,15 @@ export type Student_Insert_Input = {
   first_name?: InputMaybe<Scalars['String']>;
   group?: InputMaybe<Scalars['Int']>;
   id?: InputMaybe<Scalars['Int']>;
+  initial_pay_date?: InputMaybe<Scalars['String']>;
   last_name?: InputMaybe<Scalars['String']>;
   last_pay_date?: InputMaybe<Scalars['String']>;
   matricula?: InputMaybe<Scalars['String']>;
   next_pay_date?: InputMaybe<Scalars['String']>;
+  pay_amount?: InputMaybe<Scalars['numeric']>;
   payment_status?: InputMaybe<Scalars['String']>;
   phone?: InputMaybe<Scalars['String']>;
+  status?: InputMaybe<Scalars['String']>;
   student_level?: InputMaybe<Scalars['String']>;
 };
 
@@ -740,12 +743,15 @@ export type Student_Max_Fields = {
   first_name?: Maybe<Scalars['String']>;
   group?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
+  initial_pay_date?: Maybe<Scalars['String']>;
   last_name?: Maybe<Scalars['String']>;
   last_pay_date?: Maybe<Scalars['String']>;
   matricula?: Maybe<Scalars['String']>;
   next_pay_date?: Maybe<Scalars['String']>;
+  pay_amount?: Maybe<Scalars['numeric']>;
   payment_status?: Maybe<Scalars['String']>;
   phone?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
   student_level?: Maybe<Scalars['String']>;
 };
 
@@ -756,12 +762,15 @@ export type Student_Min_Fields = {
   first_name?: Maybe<Scalars['String']>;
   group?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
+  initial_pay_date?: Maybe<Scalars['String']>;
   last_name?: Maybe<Scalars['String']>;
   last_pay_date?: Maybe<Scalars['String']>;
   matricula?: Maybe<Scalars['String']>;
   next_pay_date?: Maybe<Scalars['String']>;
+  pay_amount?: Maybe<Scalars['numeric']>;
   payment_status?: Maybe<Scalars['String']>;
   phone?: Maybe<Scalars['String']>;
+  status?: Maybe<Scalars['String']>;
   student_level?: Maybe<Scalars['String']>;
 };
 
@@ -787,12 +796,15 @@ export type Student_Order_By = {
   first_name?: InputMaybe<Order_By>;
   group?: InputMaybe<Order_By>;
   id?: InputMaybe<Order_By>;
+  initial_pay_date?: InputMaybe<Order_By>;
   last_name?: InputMaybe<Order_By>;
   last_pay_date?: InputMaybe<Order_By>;
   matricula?: InputMaybe<Order_By>;
   next_pay_date?: InputMaybe<Order_By>;
+  pay_amount?: InputMaybe<Order_By>;
   payment_status?: InputMaybe<Order_By>;
   phone?: InputMaybe<Order_By>;
+  status?: InputMaybe<Order_By>;
   student_level?: InputMaybe<Order_By>;
 };
 
@@ -812,6 +824,8 @@ export enum Student_Select_Column {
   /** column name */
   Id = 'id',
   /** column name */
+  InitialPayDate = 'initial_pay_date',
+  /** column name */
   LastName = 'last_name',
   /** column name */
   LastPayDate = 'last_pay_date',
@@ -820,9 +834,13 @@ export enum Student_Select_Column {
   /** column name */
   NextPayDate = 'next_pay_date',
   /** column name */
+  PayAmount = 'pay_amount',
+  /** column name */
   PaymentStatus = 'payment_status',
   /** column name */
   Phone = 'phone',
+  /** column name */
+  Status = 'status',
   /** column name */
   StudentLevel = 'student_level'
 }
@@ -833,12 +851,15 @@ export type Student_Set_Input = {
   first_name?: InputMaybe<Scalars['String']>;
   group?: InputMaybe<Scalars['Int']>;
   id?: InputMaybe<Scalars['Int']>;
+  initial_pay_date?: InputMaybe<Scalars['String']>;
   last_name?: InputMaybe<Scalars['String']>;
   last_pay_date?: InputMaybe<Scalars['String']>;
   matricula?: InputMaybe<Scalars['String']>;
   next_pay_date?: InputMaybe<Scalars['String']>;
+  pay_amount?: InputMaybe<Scalars['numeric']>;
   payment_status?: InputMaybe<Scalars['String']>;
   phone?: InputMaybe<Scalars['String']>;
+  status?: InputMaybe<Scalars['String']>;
   student_level?: InputMaybe<Scalars['String']>;
 };
 
@@ -847,6 +868,7 @@ export type Student_Stddev_Fields = {
   __typename?: 'student_stddev_fields';
   group?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
+  pay_amount?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_pop on columns */
@@ -854,6 +876,7 @@ export type Student_Stddev_Pop_Fields = {
   __typename?: 'student_stddev_pop_fields';
   group?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
+  pay_amount?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -861,6 +884,7 @@ export type Student_Stddev_Samp_Fields = {
   __typename?: 'student_stddev_samp_fields';
   group?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
+  pay_amount?: Maybe<Scalars['Float']>;
 };
 
 /** Streaming cursor of the table "student" */
@@ -877,12 +901,15 @@ export type Student_Stream_Cursor_Value_Input = {
   first_name?: InputMaybe<Scalars['String']>;
   group?: InputMaybe<Scalars['Int']>;
   id?: InputMaybe<Scalars['Int']>;
+  initial_pay_date?: InputMaybe<Scalars['String']>;
   last_name?: InputMaybe<Scalars['String']>;
   last_pay_date?: InputMaybe<Scalars['String']>;
   matricula?: InputMaybe<Scalars['String']>;
   next_pay_date?: InputMaybe<Scalars['String']>;
+  pay_amount?: InputMaybe<Scalars['numeric']>;
   payment_status?: InputMaybe<Scalars['String']>;
   phone?: InputMaybe<Scalars['String']>;
+  status?: InputMaybe<Scalars['String']>;
   student_level?: InputMaybe<Scalars['String']>;
 };
 
@@ -891,6 +918,7 @@ export type Student_Sum_Fields = {
   __typename?: 'student_sum_fields';
   group?: Maybe<Scalars['Int']>;
   id?: Maybe<Scalars['Int']>;
+  pay_amount?: Maybe<Scalars['numeric']>;
 };
 
 /** update columns of table "student" */
@@ -904,6 +932,8 @@ export enum Student_Update_Column {
   /** column name */
   Id = 'id',
   /** column name */
+  InitialPayDate = 'initial_pay_date',
+  /** column name */
   LastName = 'last_name',
   /** column name */
   LastPayDate = 'last_pay_date',
@@ -912,9 +942,13 @@ export enum Student_Update_Column {
   /** column name */
   NextPayDate = 'next_pay_date',
   /** column name */
+  PayAmount = 'pay_amount',
+  /** column name */
   PaymentStatus = 'payment_status',
   /** column name */
   Phone = 'phone',
+  /** column name */
+  Status = 'status',
   /** column name */
   StudentLevel = 'student_level'
 }
@@ -932,6 +966,7 @@ export type Student_Var_Pop_Fields = {
   __typename?: 'student_var_pop_fields';
   group?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
+  pay_amount?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate var_samp on columns */
@@ -939,6 +974,7 @@ export type Student_Var_Samp_Fields = {
   __typename?: 'student_var_samp_fields';
   group?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
+  pay_amount?: Maybe<Scalars['Float']>;
 };
 
 /** aggregate variance on columns */
@@ -946,6 +982,7 @@ export type Student_Variance_Fields = {
   __typename?: 'student_variance_fields';
   group?: Maybe<Scalars['Float']>;
   id?: Maybe<Scalars['Float']>;
+  pay_amount?: Maybe<Scalars['Float']>;
 };
 
 export type Subscription_Root = {
@@ -1313,7 +1350,7 @@ export type Teacher_Variance_Fields = {
 export type GetStudentsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetStudentsQuery = { __typename?: 'query_root', student: Array<{ __typename?: 'student', date_ins: string, first_name: string, group: number, id: number, last_name: string, last_pay_date?: string | null, matricula: string, next_pay_date: string, payment_status: string, phone: string, student_level: string }> };
+export type GetStudentsQuery = { __typename?: 'query_root', student: Array<{ __typename?: 'student', date_ins: string, first_name: string, group: number, id: number, last_name: string, last_pay_date: string, matricula: string, next_pay_date: string, payment_status: string, phone: string, student_level: string }> };
 
 export const GetStudentsDocument = gql`
     query getStudents {

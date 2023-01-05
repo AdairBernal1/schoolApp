@@ -18,6 +18,9 @@ export const GET_STUDENTS = gql`
     payment_status
     phone
     student_level
+    initial_pay_date
+    pay_amount
+    status
     }
   }
 `;
@@ -59,12 +62,15 @@ export class AlumnosComponent implements OnInit {
   displayedColumns: string[] = [
     'ID',
     'Matricula',
+    'Status',
     'Nombre',
     'Apellido',
     'Telefono',
     'Grupo',
     'FechaInscripcion',
+    'PayAmount',
     'PaymentStatus',
+    'InitialPaymentDate',
     'LastPaymentDate',
     'NextPaymentDate',
     'StudentLevel',

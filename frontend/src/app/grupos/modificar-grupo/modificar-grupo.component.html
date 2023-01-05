@@ -33,13 +33,11 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>NivelGrupo</mat-label>
-          <input
-            matInput
-            type="text"
-            id="group_level"
-            name="group_level"
-            [(ngModel)]="group_level"
-          />
+              <mat-select [(ngModel)]="group_level" name="group_level" id="group_level">
+                <mat-option *ngFor="let level of levelOptions" [value]="level">
+                  {{level}}
+                </mat-option>
+              </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>TeachersAnteriores</mat-label>

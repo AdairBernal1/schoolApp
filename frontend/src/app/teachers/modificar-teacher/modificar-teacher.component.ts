@@ -57,6 +57,7 @@ export class ModificarTeacherComponent implements OnInit {
   lastName: String = ""
   hireDate: String = ""
   status: String = ""
+  statusOptions: String[] = ["Activo", "Inactivo"]
   fireDate: String = ""
 
   constructor(

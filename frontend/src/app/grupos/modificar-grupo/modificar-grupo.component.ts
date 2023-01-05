@@ -50,6 +50,7 @@ export class ModificarGrupoComponent implements OnInit {
   current_teacher: Number = 10;
   day: String = '';
   group_level: String = '';
+  levelOptions: String[] = ["Basico", "Basico-Intermedio", "Intermedio", "Avanzado"]
   previous_teachers: Number = 10;
   time: String = '';
   id: Number = 1;

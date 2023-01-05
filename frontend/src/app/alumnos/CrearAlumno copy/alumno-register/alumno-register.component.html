@@ -12,6 +12,14 @@
         />
       </mat-form-field>
       <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <mat-select [(ngModel)]="status" name="status" id="status">
+          <mat-option *ngFor="let status of statusOptions" [value]="status">
+            {{status}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>Nombre</mat-label>
         <input
           matInput
@@ -35,7 +43,7 @@
         <mat-label>Telefono</mat-label>
         <input
           matInput
-          type="text"
+          type="number"
           id="phone"
           name="phone"
           [(ngModel)]="phone"
@@ -55,17 +63,37 @@
         <mat-label>FechaInscripcion</mat-label>
         <input
           matInput
-          type="text"
+          type="date"
           id="dateIns"
           name="dateIns"
           [(ngModel)]="dateIns"
         />
       </mat-form-field>
       <mat-form-field appearance="fill">
+        <mat-label>CantidadPago</mat-label>
+        <input
+          matInput
+          type="number"
+          id="payAmount"
+          name="payAmount"
+          [(ngModel)]="payAmount"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>FechaPagoInicial</mat-label>
+        <input
+          matInput
+          type="date"
+          id="initial_pay_date"
+          name="initial_pay_date"
+          [(ngModel)]="initial_pay_date"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
         <mat-label>ProximaFechaPago</mat-label>
         <input
           matInput
-          type="text"
+          type="date"
           id="next_pay_date"
           name="next_pay_date"
           [(ngModel)]="next_pay_date"
@@ -73,13 +101,11 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>NivelDelEstudiante</mat-label>
-        <input
-          matInput
-          type="text"
-          id="student_level"
-          name="student_level"
-          [(ngModel)]="student_level"
-        />
+        <mat-select [(ngModel)]="student_level" name="student_level" id="student_level">
+          <mat-option *ngFor="let level of levelOptions" [value]="level">
+            {{level}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
   </div>

@@ -25,7 +25,7 @@
             <mat-label>FechaContrato</mat-label>
             <input
                 matInput
-                type="text"
+                type="date"
                 id="hireDate"
                 name="hireDate"
                 [(ngModel)]="hireDate"
@@ -33,19 +33,17 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Estado</mat-label>
-            <input
-            matInput
-            type="text"
-            id="status"
-            name="status"
-            [(ngModel)]="status"
-            />
+            <mat-select [(ngModel)]="status" name="status" id="status">
+                <mat-option *ngFor="let status of statusOptions" [value]="status">
+                  {{status}}
+                </mat-option>
+              </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>FechaBaja</mat-label>
             <input
             matInput
-            type="number"
+            type="date"
             id="fireDate"
             name="fireDate"
             [(ngModel)]="fireDate"

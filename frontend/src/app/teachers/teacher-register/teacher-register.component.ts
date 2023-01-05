@@ -25,6 +25,7 @@ export class TeacherRegisterComponent implements OnInit {
   lastName: String = ""
   hireDate: String = ""
   status: String = ""
+  statusOptions: String[] = ["Activo", "Inactivo"]
   fireDate: String = ""
 
   constructor(private apollo: Apollo) {}
