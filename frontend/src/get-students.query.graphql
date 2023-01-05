@@ -1,12 +1,15 @@
 query getStudents {
-  students {
-    tuition_type
-    student_id
-    phone
-    matricula
-    last_name
+  student {
     date_ins
     first_name
     group
+    id
+    last_name
+    last_pay_date
+    matricula
+    next_pay_date
+    payment_status
+    phone
+    student_level
   }
 }

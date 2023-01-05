@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
-import { Groups } from 'graphql/generated';
+import { Group } from 'graphql/generated';
 
-const GET_groups = gql`
+export const GET_GROUPS = gql`
   query MyQuery {
-    groups {
+    group {
+      current_teacher
       day
+      group_level
       id
-      teacher
+      previous_teachers
       time
     }
   }
@@ -19,25 +21,27 @@ const GET_groups = gql`
   styleUrls: ['./grupos.component.scss'],
 })
 export class GruposComponent implements OnInit {
-  allgroups: Groups[] = [];
+  allgroups: Group[] = [];
 
   constructor(private apollo: Apollo) {}
 
   ngOnInit(): void {
     this.apollo
       .watchQuery<any>({
-        query: GET_groups,
+        query: GET_GROUPS,
       })
       .valueChanges.subscribe(({ data, loading }) => {
         console.log(loading);
-        this.allgroups = data.groups;
+        this.allgroups = data.group;
       });
   }
   displayedColumns: string[] = [
     'ID',
     'Dia',
     'Hora',
-    'Teacher',
+    'TeacherActual',
+    'TeacherAnterior',
+    'NivelGrupo',
     'Accion'
   ];
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
-import { Teachers } from 'graphql/generated';
+import { Teacher } from 'graphql/generated';
 
 const GET_Teachers = gql`
   query MyQuery {
@@ -19,7 +19,7 @@ const GET_Teachers = gql`
   styleUrls: ['./teachers.component.scss'],
 })
 export class TeachersComponent implements OnInit {
-  allTeachers: Teachers[] = [];
+  allTeachers: Teacher[] = [];
 
   constructor(private apollo: Apollo) {}
 

@@ -1,0 +1,62 @@
+<div>
+    <div class="form-column">
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Dia</mat-label>
+          <input
+            matInput
+            type="text"
+            id="day"
+            name="day"
+            [(ngModel)]="day"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Hora</mat-label>
+          <input
+            matInput
+            type="text"
+            id="time"
+            name="time"
+            [(ngModel)]="time"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>TeacherActual</mat-label>
+            <input
+              matInput
+              type="text"
+              id="current_teacher"
+              name="current_teacher"
+              [(ngModel)]="current_teacher"
+            />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>NivelGrupo</mat-label>
+          <input
+            matInput
+            type="text"
+            id="group_level"
+            name="group_level"
+            [(ngModel)]="group_level"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>TeachersAnteriores</mat-label>
+          <input
+            matInput
+            type="number"
+            id="previous_teachers"
+            name="previous_teachers"
+            [(ngModel)]="previous_teachers"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-column">
+      <div class="form-row">
+        <button class="cancel-button" mat-raised-button routerLink="..">Cancelar</button>
+        <button class="register-button" mat-raised-button (click)="addGroup()" routerLink="..">Registrar</button>
+      </div>
+    </div>
+  </div>

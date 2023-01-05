@@ -62,13 +62,23 @@
         />
       </mat-form-field>
       <mat-form-field appearance="fill">
-        <mat-label>Pago</mat-label>
+        <mat-label>ProximaFechaPago</mat-label>
         <input
           matInput
           type="text"
-          id="tuitionType"
-          name="tuitionType"
-          [(ngModel)]="tuitionType"
+          id="next_pay_date"
+          name="next_pay_date"
+          [(ngModel)]="next_pay_date"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>NivelDelEstudiante</mat-label>
+        <input
+          matInput
+          type="text"
+          id="student_level"
+          name="student_level"
+          [(ngModel)]="student_level"
         />
       </mat-form-field>
     </div>

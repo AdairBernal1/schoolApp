@@ -1,0 +1,122 @@
+<div>
+    <div class="form-column">
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+            <mat-label>ID</mat-label>
+            <input
+              matInput
+              type="number"
+              id="id"
+              name="id"
+              [(ngModel)]="id"
+            />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Matricula</mat-label>
+          <input
+            matInput
+            type="text"
+            id="matricula"
+            name="matricula"
+            [(ngModel)]="matricula"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input
+            matInput
+            type="text"
+            id="firstName"
+            name="firstName"
+            [(ngModel)]="firstName"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Apellido</mat-label>
+          <input
+            matInput
+            type="text"
+            id="lastName"
+            name="lastName"
+            [(ngModel)]="lastName"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Telefono</mat-label>
+          <input
+            matInput
+            type="text"
+            id="phone"
+            name="phone"
+            [(ngModel)]="phone"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>grupo</mat-label>
+          <input
+            matInput
+            type="number"
+            id="group"
+            name="group"
+            [(ngModel)]="group"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>FechaInscripcion</mat-label>
+          <input
+            matInput
+            type="text"
+            id="dateIns"
+            name="dateIns"
+            [(ngModel)]="dateIns"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>UltimaFechaPago</mat-label>
+            <input
+              matInput
+              type="text"
+              id="last_pay_date"
+              name="last_pay_date"
+              [(ngModel)]="last_pay_date"
+            />
+          </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>ProximaFechaPago</mat-label>
+          <input
+            matInput
+            type="text"
+            id="next_pay_date"
+            name="next_pay_date"
+            [(ngModel)]="next_pay_date"
+          />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>EstatusPago</mat-label>
+            <input
+              matInput
+              type="text"
+              id="payment_status"
+              name="payment_status"
+              [(ngModel)]="payment_status"
+            />
+          </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>NivelDelEstudiante</mat-label>
+          <input
+            matInput
+            type="text"
+            id="student_level"
+            name="student_level"
+            [(ngModel)]="student_level"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="form-column">
+      <div class="form-row">
+        <button class="cancel-button" mat-raised-button routerLink="/dashboard/alumnos">Cancelar</button>
+        <button class="register-button" mat-raised-button (click)="updateStudent()" routerLink="/dashboard/alumnos">Actualizar</button>
+      </div>
+    </div>
+  </div>
