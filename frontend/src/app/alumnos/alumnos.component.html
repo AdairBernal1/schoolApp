@@ -1,5 +1,8 @@
 <div class="summarytable-container">
-  <button mat-stroked-button routerLink="crear">Agregar alumno</button>
+  <div class="flex justify-content-between">
+    <button mat-stroked-button routerLink="crear">Agregar alumno</button>
+    <h3 class="population-tag">Poblacion Total : {{population}}</h3>
+  </div>
   <router-outlet></router-outlet>
   <div *ngIf="showStudentTable">
     <table mat-table [dataSource]="this.allStudents" class="mat-elevation-z8">

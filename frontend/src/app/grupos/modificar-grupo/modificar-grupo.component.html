@@ -23,13 +23,11 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>TeacherActual</mat-label>
-            <input
-              matInput
-              type="text"
-              id="current_teacher"
-              name="current_teacher"
-              [(ngModel)]="current_teacher"
-            />
+            <mat-select [(ngModel)]="current_teacher" name="current_teacher" id="current_teacher">
+              <mat-option *ngFor="let teacher of teacherOptions" [value]="teacher">
+                {{teacher}}
+              </mat-option>
+            </mat-select>
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>NivelGrupo</mat-label>
@@ -41,13 +39,11 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>TeachersAnteriores</mat-label>
-          <input
-            matInput
-            type="number"
-            id="previous_teachers"
-            name="previous_teachers"
-            [(ngModel)]="previous_teachers"
-          />
+          <mat-select [(ngModel)]="previous_teachers" name="previous_teachers" id="previous_teachers">
+            <mat-option *ngFor="let teacher of teacherOptions" [value]="teacher">
+              {{teacher}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
     </div>

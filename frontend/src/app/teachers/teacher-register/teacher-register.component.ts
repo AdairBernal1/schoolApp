@@ -63,5 +63,6 @@ export class TeacherRegisterComponent implements OnInit {
           console.log('there was an error sending the query', error);
         }
       );
+      window.location.reload();
   }
 }

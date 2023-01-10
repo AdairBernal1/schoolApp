@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
-import { Group } from 'graphql/generated';
+import { Group, Teacher } from 'graphql/generated';
+import { GET_TEACHERS } from 'src/app/teachers/teachers.component';
 import { GET_GROUPS } from '../grupos.component';
 
 const UPDATE_GROUP = gql`
   mutation MyMutation(
     $id: Int = 10
-    $current_teacher: Int = 10
     $day: String = ""
-    $group_level: String = ""
-    $previous_teachers: Int = 10
     $time: String = ""
+    $current_teacher: String = ""
+    $group_level: String = ""
+    $previous_teachers: String = ""
   ) {
     update_group_by_pk(
       pk_columns: { id: $id }
@@ -47,13 +48,15 @@ const GET_GROUP_BY_ID = gql`
   styleUrls: ['./modificar-grupo.component.scss'],
 })
 export class ModificarGrupoComponent implements OnInit {
-  current_teacher: Number = 10;
+  current_teacher: String = "";
   day: String = '';
   group_level: String = '';
   levelOptions: String[] = ["Basico", "Basico-Intermedio", "Intermedio", "Avanzado"]
-  previous_teachers: Number = 10;
+  previous_teachers: String = "";
   time: String = '';
   id: Number = 1;
+  allTeachers: Teacher[] = [];
+  teacherOptions: String[] = [];
 
   constructor(private apollo: Apollo, private route:ActivatedRoute, private router: Router) {}
 
@@ -61,6 +64,16 @@ export class ModificarGrupoComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       var id = Number(params.get('id'));
       this.getById(id);
+    });
+    this.apollo
+    .watchQuery<any>({
+      query: GET_TEACHERS,
+    })
+    .valueChanges.subscribe(({ data, loading }) => {
+      console.log(loading);
+      this.allTeachers = data.teacher;
+      this.teacherOptions = this.allTeachers.map((obj) => String(obj.id));
+      this.teacherOptions.push("-")
     });
   }
 
@@ -75,6 +88,7 @@ export class ModificarGrupoComponent implements OnInit {
     .valueChanges.subscribe(({ data, loading }) => {
       console.log(loading);
       var groupByID = data.group_by_pk;
+      this.id = groupByID.id;
       this.current_teacher = groupByID.current_teacher;
       this.day = groupByID.day;
       this.group_level = groupByID.group_level;
@@ -115,7 +129,8 @@ export class ModificarGrupoComponent implements OnInit {
         },
       })
       .subscribe(({ data }) => {
-        this.router.navigate(['/dashboard/groups']);
+        this.router.navigate(['/dashboard/grupos']);
       });
+      window.location.reload();
   }
 }

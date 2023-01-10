@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { GET_STUDENTS } from '../../alumnos.component';
+import { GET_GROUPS } from 'src/app/grupos/grupos.component';
+import { Group } from 'graphql/generated';
 
 const ADD_STUDENT = gql`
   mutation insertStudentMutation(
@@ -13,6 +15,7 @@ const ADD_STUDENT = gql`
     $status: String = ""
     $pay_amount: numeric = ""
     $initial_pay_date: String = ""
+    $last_pay_date: String = ""
     $next_pay_date: String = ""
     $phone: String = ""
     $student_level: String = ""
@@ -26,6 +29,7 @@ const ADD_STUDENT = gql`
         matricula: $matricula
         status: $status
         initial_pay_date: $initial_pay_date
+        last_pay_date: $last_pay_date
         next_pay_date: $next_pay_date
         pay_amount: $pay_amount
         payment_status: "Acreditado"
@@ -54,13 +58,26 @@ export class AlumnoRegisterComponent implements OnInit {
   phone: Number = 0;
   payAmount: Number = 0;
   initial_pay_date: String = '';
+  last_pay_date: String = '';
   next_pay_date: String = '';
   student_level: String = '';
   levelOptions: String[] = ["Basico", "Basico-Intermedio", "Intermedio", "Avanzado"]
+  allgroups: Group[] = [];
+  groupOptions: String[] = [];
 
   constructor(private apollo: Apollo) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apollo
+    .watchQuery<any>({
+      query: GET_GROUPS,
+    })
+    .valueChanges.subscribe(({ data, loading }) => {
+      console.log(loading);
+      this.allgroups = data.group;
+      this.groupOptions = this.allgroups.map((obj) => String(obj.id));
+    });
+  }
 
   addStudent() {
     this.apollo
@@ -76,6 +93,7 @@ export class AlumnoRegisterComponent implements OnInit {
           group: this.group,
           pay_amount: this.payAmount,
           initial_pay_date: this.initial_pay_date,
+          last_pay_date: this.last_pay_date,
           next_pay_date: this.next_pay_date,
           student_level: this.student_level
         },
@@ -99,5 +117,6 @@ export class AlumnoRegisterComponent implements OnInit {
           console.log('there was an error sending the query', error);
         }
       );
+      window.location.reload();
   }
 }

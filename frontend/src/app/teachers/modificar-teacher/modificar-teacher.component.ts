@@ -129,5 +129,6 @@ export class ModificarTeacherComponent implements OnInit {
       .subscribe(({ data }) => {
         this.router.navigate(['/dashboard/teachers']);
       });
+      window.location.reload();
   }
 }

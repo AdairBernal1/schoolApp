@@ -43,6 +43,7 @@ mutation MyMutation($id: Int!) {
 export class AlumnosComponent implements OnInit {
   showStudentTable = true;
   allStudents: Student[] = [];
+  population: Number = 0;
   idTodelete: Number;
 
   constructor(private apollo: Apollo, public dialogo: MatDialog) {}
@@ -55,6 +56,7 @@ export class AlumnosComponent implements OnInit {
       .valueChanges.subscribe(({ data, loading }) => {
         console.log(loading);
         this.allStudents = data.student;
+        this.population = this.allStudents.length
       });
 
   }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
-import { Student } from 'graphql/generated';
+import { Group, Student } from 'graphql/generated';
+import { GET_GROUPS } from 'src/app/grupos/grupos.component';
 import { GET_STUDENTS } from '../alumnos.component';
 
 const UPDATE_STUDENT = gql`
@@ -90,6 +91,8 @@ export class ModificarAlumnoComponent implements OnInit {
   student_level: String = '';
   levelOptions: String[] = ["Basico", "Basico-Intermedio", "Intermedio", "Avanzado"];
   allStudents: Student;
+  allgroups: Group[] = [];
+  groupOptions: String[] = [];
   id: Number = 1;
 
   constructor(private apollo: Apollo, private route:ActivatedRoute, private router: Router) {}
@@ -98,6 +101,15 @@ export class ModificarAlumnoComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       var id = Number(params.get('id'));
       this.getById(id);
+    });
+    this.apollo
+    .watchQuery<any>({
+      query: GET_GROUPS,
+    })
+    .valueChanges.subscribe(({ data, loading }) => {
+      console.log(loading);
+      this.allgroups = data.group;
+      this.groupOptions = this.allgroups.map((obj) => String(obj.id));
     });
   }
 
@@ -171,5 +183,6 @@ export class ModificarAlumnoComponent implements OnInit {
       .subscribe(({ data }) => {
         this.router.navigate(['/dashboard/alumnos']);
       });
+      window.location.reload();
   }
 }

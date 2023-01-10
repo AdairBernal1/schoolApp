@@ -51,13 +51,11 @@
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>grupo</mat-label>
-        <input
-          matInput
-          type="number"
-          id="group"
-          name="group"
-          [(ngModel)]="group"
-        />
+        <mat-select [(ngModel)]="group" name="group" id="group">
+          <mat-option *ngFor="let group of groupOptions" [value]="group">
+            {{group}}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>FechaInscripcion</mat-label>
@@ -87,6 +85,16 @@
           id="initial_pay_date"
           name="initial_pay_date"
           [(ngModel)]="initial_pay_date"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>UltimaFechaPago</mat-label>
+        <input
+          matInput
+          type="date"
+          id="last_pay_date"
+          name="last_pay_date"
+          [(ngModel)]="last_pay_date"
         />
       </mat-form-field>
       <mat-form-field appearance="fill">
